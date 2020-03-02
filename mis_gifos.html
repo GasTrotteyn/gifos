@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de video por camara</title>
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/773477662d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./Styles/mis_guifos.css">
+</head>
+<body>
+    <div class="gradient">
+        <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <b
+                id="visitas">12.765.803</b></p>
+    </div>
+    <div class="header">
+        <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia">
+        <div class="botones">
+            <div class="boton" id="crear"> <a class="anchor" href="./mis_gifos.html">Crear Guifos</a></div>
+            <div class="boton" id="tema">Elegir Tema</div>
+            <div class="boton desplegable" id="desplegable"><i class="fas fa-caret-down"></i></div>
+            <div class="menu" id="menu">
+                <div class="boton" id="btnDay">
+                    <p><span>S</span>ailor Day</p>
+                </div>
+                <div class="boton" id="btnNight">
+                    <p><span>S</span>ailor Night</p>
+                </div>
+            </div>
+            <label for="misGuifos"><a href="mis_gifos.html"><span id="m">M</span>is Guifos</a></label>
+        </div>
+
+    </div>
+    <div class="sugerencias">
+        <div class="input">Mis Guifos</div>
+        <div id="cuadros" class="cuadros" >
+
+        </div>
+    </div>
+    <p>acá va toda la historia de la cámara.</p>
+    <div>
+        <button id="btnStart">Mostrar imagen</button>
+        <button id="btnStop">Detener imagen</button>
+    </div>
+    <video id="cuadroVideo" controls></video>
+    <div>
+        <button id="btnStartRecord">Empezar a grabar</button>
+        <button id="btnStopRecord">Detener grabación</button>
+    </div>
+
+    <img id="cuadroVideo2" src="./img_8470_0.jpg" width="350px"></img> 
+
+    <script src="./mis_gifos.js"></script>
+</body>
+</html>
