@@ -321,10 +321,12 @@ body {
           justify-content: space-between;
   width: 276px;
   margin-left: 2px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .resultado .cuadros .cuadro .gradient p, .sugerencias .cuadros .cuadro .gradient p, .tendencias .cuadros .cuadro .gradient p {
-  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .resultado .cuadros .cuadro .gradient img, .sugerencias .cuadros .cuadro .gradient img, .tendencias .cuadros .cuadro .gradient img {
