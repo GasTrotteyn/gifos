@@ -64,17 +64,18 @@ async function getVideoFromCamera() {
         console.log(stream);
         return stream;
     } catch (err) {
-        console.log('mocaazo' + err);
+        console.log('No se pudo tomar el video de la cámara:' + err);
     }
 };
 
-async function showVideo (){
+async function showVideo() {
     let stream = await getVideoFromCamera();
+    //console.log (stream);
     cuadroVideo.srcObject = stream;
-        cuadroVideo.play();
+    cuadroVideo.play();
 }
 
-function stopShowVideo(){
+function stopShowVideo() {
     cuadroVideo.pause();
 }
 
@@ -82,30 +83,29 @@ function stopShowVideo(){
 
 let btnStartRecord = document.getElementById('btnStartRecord');
 let btnStopRecord = document.getElementById('btnStopRecord');
-let cuadroVideo2 = document.getElementById('cuadroVideo2');
+let cuadroParaGif = document.getElementById('cuadroParaGif');
+
+let recorder 
 
 async function recordVideo() {
     let stream = await getVideoFromCamera();
-    let recorder = RecordRTC(stream, {
+    recorder = RecordRTC(stream, {
         type: 'gif',
-        // frameRate: 1,
-        // quality: 10,
-        // width: 360,        
-        // onGifRecordingStarted: function () {
-        //     console.log('started')
-        // },
     });
     recorder.startRecording();
-    setTimeout(function (){
-        recorder.stopRecording(async function (){
-            let blob = recorder.getBlob();
-            let url = URL.createObjectURL(blob);
-            console.log (url);
-            cuadroVideo2.src = url;
-            //cuadroVideo2.play();
-        });
-    }, 5000);
 }
+
+
+async function stopRecordVideo() {
+    recorder.stopRecording(async function () {
+        let blob = recorder.getBlob();
+        let url = URL.createObjectURL(blob);
+        console.log(url);
+        cuadroParaGif.src = url;
+        //cuadroParaGif.play();
+    });
+};
+
 
 ///FUNCION PRINCIPAL//////
 
@@ -113,7 +113,7 @@ function cargarPagina() {
     btnStart.addEventListener('click', showVideo);
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
-    //btnStopRecord.addEventListener('click', stopRecordVideo);
+    btnStopRecord.addEventListener('click', stopRecordVideo);
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
