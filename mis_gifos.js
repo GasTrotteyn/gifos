@@ -61,7 +61,7 @@ let btnStop = document.getElementById('btnStop');
 async function getVideoFromCamera() {
     try {
         let stream = await navigator.mediaDevices.getUserMedia(constraints);
-        console.log(stream);
+        //console.log(stream);
         return stream;
     } catch (err) {
         console.log('No se pudo tomar el video de la cámara:' + err);
@@ -73,10 +73,13 @@ async function showVideo() {
     //console.log (stream);
     cuadroVideo.srcObject = stream;
     cuadroVideo.play();
+    btnStop.disabled = false;
 }
 
 function stopShowVideo() {
+    
     cuadroVideo.pause();
+    btnStop.disabled = true;
 }
 
 /////FUNCION DE GRABAR VIDEO////////////////////////
@@ -88,23 +91,40 @@ let cuadroParaGif = document.getElementById('cuadroParaGif');
 let recorder 
 
 async function recordVideo() {
+    showVideo();
     let stream = await getVideoFromCamera();
     recorder = RecordRTC(stream, {
         type: 'gif',
     });
     recorder.startRecording();
+    btnStopRecord.disabled = false;
 }
 
 
 async function stopRecordVideo() {
+    stopShowVideo();
     recorder.stopRecording(async function () {
         let blob = recorder.getBlob();
         let url = URL.createObjectURL(blob);
-        console.log(url);
+        //console.log(url);
         cuadroParaGif.src = url;
         //cuadroParaGif.play();
     });
+    btnStopRecord.disabled = true;
 };
+
+
+///ENVIAR EL GIF////
+
+let btnUpLoadGif = document.getElementById('btnUpLoadGif');
+
+async function packGif (){
+    let form = new FormData();
+    let blob = recorder.getBlob();
+    console.log (blob);
+    await form.append('file', blob,'myGif.gif');
+    console.log(form);
+}
 
 
 ///FUNCION PRINCIPAL//////
@@ -114,6 +134,7 @@ function cargarPagina() {
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
     btnStopRecord.addEventListener('click', stopRecordVideo);
+    btnUpLoadGif.addEventListener('click', packGif);
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
