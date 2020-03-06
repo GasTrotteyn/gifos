@@ -77,7 +77,7 @@ async function showVideo() {
 }
 
 function stopShowVideo() {
-    
+
     cuadroVideo.pause();
     btnStop.disabled = true;
 }
@@ -88,7 +88,7 @@ let btnStartRecord = document.getElementById('btnStartRecord');
 let btnStopRecord = document.getElementById('btnStopRecord');
 let cuadroParaGif = document.getElementById('cuadroParaGif');
 
-let recorder 
+let recorder
 
 async function recordVideo() {
     showVideo();
@@ -116,15 +116,34 @@ async function stopRecordVideo() {
 
 ///ENVIAR EL GIF////
 
-let btnUpLoadGif = document.getElementById('btnUpLoadGif');
+const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
+let btnUploadGif = document.getElementById('btnUploadGif');
+let form = new FormData();
 
-async function packGif (){
-    let form = new FormData();
+async function packGif() {
     let blob = recorder.getBlob();
-    console.log (blob);
-    await form.append('file', blob,'myGif.gif');
-    console.log(form);
+    //console.log (blob);
+    form.append('file', blob, 'myGif.gif');
+    console.log(form.get('file'));
 }
+
+async function sendGif() {
+    packGif();
+    fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
+        method: 'POST',
+        body: form,
+    }).then(function(response) {
+        if(response.ok) {
+            console.log (response);
+        } else {
+            throw "Error en la llamada";
+        };
+    })
+}
+
+     
+
+
 
 
 ///FUNCION PRINCIPAL//////
@@ -134,7 +153,7 @@ function cargarPagina() {
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
     btnStopRecord.addEventListener('click', stopRecordVideo);
-    btnUpLoadGif.addEventListener('click', packGif);
+    btnUploadGif.addEventListener('click', sendGif);
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
