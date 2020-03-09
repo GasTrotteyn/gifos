@@ -100,6 +100,7 @@ async function CrearEventoBotonesDeHistorial () {
 
 const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 
+
 async function getSearchResults(search) {
     
     let url = 'http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + apiKey +'&limit=6';

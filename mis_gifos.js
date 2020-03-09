@@ -115,7 +115,7 @@ async function stopRecordVideo() {
 
 
 ///ENVIAR EL GIF////
-
+/*
 const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 let btnUploadGif = document.getElementById('btnUploadGif');
 let form = new FormData();
@@ -124,9 +124,29 @@ async function packGif() {
     let blob = recorder.getBlob();
     //console.log (blob);
     form.append('file', blob, 'myGif.gif');
+    form.append('api_key', apiKey);
     console.log(form.get('file'));
 }
 
+async function sendGif() {
+    packGif();
+    fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
+        method: 'POST',
+        body: form,
+    })
+}
+*/
+
+const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
+let btnUploadGif = document.getElementById('btnUploadGif');
+let form = new FormData();
+async function packGif() {
+    let blob = recorder.getBlob();
+    //console.log (blob);
+    form.append('file', blob, 'myGif.gif');
+    form.append('api_key', apiKey);
+    console.log(form.get('file'));
+}
 async function sendGif() {
     packGif();
     fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
@@ -140,11 +160,6 @@ async function sendGif() {
         };
     })
 }
-
-     
-
-
-
 
 ///FUNCION PRINCIPAL//////
 
