@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
     <link rel="stylesheet" href="./Styles/mis_guifos.css">
 </head>
+
 <body>
     <div class="gradient">
         <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <b
@@ -32,28 +34,55 @@
         </div>
 
     </div>
+    <div class="instrucciones">
+        <div class="gradient">
+            <p>Crear Guifos</p>
+        </div>
+        <img src="assets/window img.png" alt="icono de ventana de windows" class="ventanita">
+        <div class="texto">
+            <h4>Aquí podrás crear tus propios guifos</h4>
+            <p>Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los
+                pasos para crear tu guifo son:</p>
+            <p> 1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
+            <p> 2) Capturar tu momento guifo</p>
+            <p> 3) Revisar el momento</p>
+            <p> 4) Listo para subir y compartir!</p>
+            <p> ¿Quieres comenzar a crear tu guifo ahora?</p>
+        </div>
+        <div class="botonesComienzo">
+            <button class="boton cancelar"><a class="anchorCancelar" href="./index.html">Cancelar</a></button>
+            <button class="boton">Comenzar</button>
+        </div>
+
+    </div>
+    <div class="cuadrosVideo">
+        <div class="verPorCamara">
+            <div class="gradient">
+                <p>Así se ve desde tu cámara</p>
+            </div>
+            <div class="cuadroCamara"><video id="cuadroVideo"></video></div>
+            <div class="botonesCuadroVideo">
+                <button id="btnStart">Mostrar imagen</button>
+                <button id="btnStop" disabled>Detener imagen</button>
+            </div>
+        </div>
+        <img id="cuadroParaGif" src="./img_8470_0.jpg" width="350px"></img>
+        <div>
+            <button id="btnStartRecord">Empezar a grabar</button>
+            <button id="btnStopRecord" disabled>Detener grabación</button>
+        </div>
+        <div>
+            <button id="btnUploadGif">Subir Guifo</button>
+        </div>
+    </div>
     <div class="sugerencias">
         <div class="input">Mis Guifos</div>
-        <div id="cuadros" class="cuadros" >
+        <div id="cuadros" class="cuadros">
 
         </div>
     </div>
-    <p>acá va toda la historia de la cámara.</p>
-    <div>
-        <button id="btnStart">Mostrar imagen</button>
-        <button id="btnStop" disabled>Detener imagen</button>
-    </div>
-    <video id="cuadroVideo" controls></video>
-    <div>
-        <button id="btnStartRecord">Empezar a grabar</button>
-        <button id="btnStopRecord" disabled>Detener grabación</button>
-    </div>
-    <div>
-        <button id="btnUploadGif">Subir Guifo</button>
-    </div>
-
-    <img id="cuadroParaGif" src="./img_8470_0.jpg" width="350px"></img> 
 
     <script src="./mis_gifos.js"></script>
 </body>
+
 </html>

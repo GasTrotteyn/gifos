@@ -386,7 +386,7 @@ body {
 }
 
 .gradient {
-  width: 100%;
+  width: 99.4%;
   height: 23px;
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3, #4180F6);
@@ -394,9 +394,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1px;
-  -webkit-box-shadow: 0px 1px #110038;
-          box-shadow: 0px 1px #110038;
+  margin: 2px;
+  -webkit-box-shadow: 0px 0px #110038;
+          box-shadow: 0px 0px #110038;
 }
 
 .gradient p {
@@ -406,5 +406,94 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   margin-left: 5px;
+}
+
+.instrucciones {
+  width: 690px;
+  height: 430px;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: 40px 300px;
+}
+
+.instrucciones .ventanita {
+  position: relative;
+  left: 25px;
+  top: 35px;
+}
+
+.instrucciones .texto {
+  position: relative;
+  top: -20px;
+  left: 75px;
+}
+
+.instrucciones .botonesComienzo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.instrucciones .botonesComienzo .boton {
+  height: 39px;
+}
+
+.instrucciones .botonesComienzo .cancelar {
+  background: #fff4fd;
+}
+
+.instrucciones .botonesComienzo .cancelar .anchorCancelar {
+  text-decoration: none;
+  color: #110038;
+}
+
+.cuadrosVideo {
+  background: #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cuadrosVideo .verPorCamara {
+  height: 430px;
+  width: 400px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cuadrosVideo .verPorCamara .cuadroCamara {
+  margin: 20px 30px 10px 30px;
+  display: block;
+  height: 288px;
+  width: 352px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+}
+
+.cuadrosVideo .verPorCamara .botonesCuadroVideo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: relative;
+  top: 15px;
+  width: 100%;
 }
 /*# sourceMappingURL=mis_guifos.css.map */
