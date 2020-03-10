@@ -113,53 +113,40 @@ async function stopRecordVideo() {
     btnStopRecord.disabled = true;
 };
 
-
 ///ENVIAR EL GIF////
-/*
-const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
-let btnUploadGif = document.getElementById('btnUploadGif');
-let form = new FormData();
-
-async function packGif() {
-    let blob = recorder.getBlob();
-    //console.log (blob);
-    form.append('file', blob, 'myGif.gif');
-    form.append('api_key', apiKey);
-    console.log(form.get('file'));
-}
-
-async function sendGif() {
-    packGif();
-    fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
-        method: 'POST',
-        body: form,
-    })
-}
-*/
 
 const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 let btnUploadGif = document.getElementById('btnUploadGif');
-let form = new FormData();
+
 async function packGif() {
-    let blob = recorder.getBlob();
-    //console.log (blob);
+    let form = new FormData();
+    let blob = await recorder.getBlob();
     form.append('file', blob, 'myGif.gif');
     form.append('api_key', apiKey);
-    console.log(form.get('file'));
+    sendGif(form);
+    
 }
-async function sendGif() {
-    packGif();
+
+function sendGif(form) {    
     fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
         method: 'POST',
         body: form,
     }).then(function(response) {
         if(response.ok) {
-            console.log (response);
+            return response.json();
         } else {
             throw "Error en la llamada";
         };
-    })
+    }).then((datos) => {
+        console.log (datos.data.id);
+        return datos.data.id
+    });
 }
+
+
+//// OFRECER AL USUARIO LA URL PARA COMPARTIR SU NUEVO GIF///////
+
+
 
 ///FUNCION PRINCIPAL//////
 
@@ -168,7 +155,7 @@ function cargarPagina() {
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
     btnStopRecord.addEventListener('click', stopRecordVideo);
-    btnUploadGif.addEventListener('click', sendGif);
+    btnUploadGif.addEventListener('click', packGif);
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
