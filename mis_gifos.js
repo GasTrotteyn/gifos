@@ -44,6 +44,17 @@ function cambiarlogo() {
         return './assets/gifOF_logo.png'
     }
 }
+///////// OCULTAR INSTRUCCIONES Y MOSTRAR LAS PANTALLAS///////////////////////
+
+let cuadrosVideo = document.getElementById('cuadrosVideo');
+let btnComenzar = document.getElementById('btnComenzar');
+let instrucciones = document.getElementById('instrucciones');
+function mostrarPantallas (){
+    cuadrosVideo.style.display = 'flex';
+    instrucciones.style.display = 'none';
+}
+
+
 
 /////CAPTURAR IMAGEN DE LA CÁMARA Y MOSTRAR POR PANTALLA///////////////
 
@@ -151,6 +162,7 @@ function sendGif(form) {
 ///FUNCION PRINCIPAL//////
 
 function cargarPagina() {
+    btnComenzar.addEventListener('click', mostrarPantallas);
     btnStart.addEventListener('click', showVideo);
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
