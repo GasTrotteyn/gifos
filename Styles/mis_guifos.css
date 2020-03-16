@@ -408,6 +408,19 @@ body {
   margin-left: 5px;
 }
 
+.volverAPrincipal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 130px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .instrucciones {
   width: 690px;
   height: 430px;
@@ -474,7 +487,7 @@ body {
 }
 
 .cuadrosVideo .boton:hover {
-  background-color: #997D97;
+  background-color: #997d97;
 }
 
 .cuadrosVideo .verPorCamara {
@@ -567,6 +580,19 @@ body {
   width: 180px;
 }
 
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .timer .timerNumeros {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  padding: 5px 20px;
+  width: 70px;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .timer .timerNumeros p {
+  display: inline;
+}
+
 .cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -577,7 +603,7 @@ body {
 
 .cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion .boton {
   margin: 0;
-  background: #FF6161;
+  background: #ff6161;
 }
 
 .cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion #btnStopRecord2 {

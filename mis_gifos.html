@@ -17,7 +17,10 @@
                 id="visitas">12.765.804</b></p>
     </div>
     <div class="header">
-        <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia">
+        <div class="volverAPrincipal">
+            <a href="index.html"><img src="./assets/arrow.svg" alt="flecha de retorno a página principal"></a>
+            <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia">
+        </div>
         <div class="botones">
             <div class="boton" id="crear"> <a class="anchor" href="./mis_gifos.html">Crear Guifos</a></div>
             <div class="boton" id="tema">Elegir Tema</div>
@@ -73,7 +76,14 @@
                             alt="camara para empezar a grabar"></button>
                     <button class="boton" id="btnStartRecord2">Empezar a grabar</button>
                 </div>
-                <div class="botonDetenerGrabacion" >
+                <div class="timer">
+                    <div class="timerNumeros">00:00:<p id="segundos">00</p></div>
+                    <div class="barra">
+
+                    </div>
+
+                </div>
+                <div class="botonDetenerGrabacion">
                     <button class="boton" id="btnStopRecord"><img src="./assets/recording.svg"
                             alt="boton para detener la grabación"></button>
                     <button class="boton" id="btnStopRecord2" disabled>Detener grabación</button>

@@ -49,7 +49,7 @@ function cambiarlogo() {
 let cuadrosVideo = document.getElementById('cuadrosVideo');
 let btnComenzar = document.getElementById('btnComenzar');
 let instrucciones = document.getElementById('instrucciones');
-function mostrarPantallas (){
+function mostrarPantallas() {
     cuadrosVideo.style.display = 'flex';
     instrucciones.style.display = 'none';
 }
@@ -102,6 +102,8 @@ let btnStopRecord2 = document.getElementById('btnStopRecord2');
 let cuadroParaGif = document.getElementById('cuadroParaGif');
 
 let recorder
+let bandera = false;
+let segundos = document.getElementById('segundos');
 
 async function recordVideo() {
     showVideo();
@@ -112,8 +114,23 @@ async function recordVideo() {
     recorder.startRecording();
     btnStopRecord.disabled = false;
     btnStopRecord2.disabled = false;
+    bandera = true;
+    startTimer();
 }
 
+async function startTimer() {
+    let time = 0;
+    setInterval(() => {
+        if (bandera) {
+            time++;
+            segundos.innerHTML = time;
+        }else{
+            time=0;
+        };
+    }, 1000);
+    
+
+}
 
 async function stopRecordVideo() {
     stopShowVideo();
@@ -126,6 +143,7 @@ async function stopRecordVideo() {
     });
     btnStopRecord.disabled = true;
     btnStopRecord2.disabled = true;
+    bandera = false;
 };
 
 ///ENVIAR EL GIF////
@@ -139,21 +157,21 @@ async function packGif() {
     form.append('file', blob, 'myGif.gif');
     form.append('api_key', apiKey);
     sendGif(form);
-    
+
 }
 
-function sendGif(form) {    
+function sendGif(form) {
     fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
         method: 'POST',
         body: form,
-    }).then(function(response) {
-        if(response.ok) {
+    }).then(function (response) {
+        if (response.ok) {
             return response.json();
         } else {
             throw "Error en la llamada";
         };
     }).then((datos) => {
-        console.log (datos.data.id);
+        console.log(datos.data.id);
         return datos.data.id
     });
 }

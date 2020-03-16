@@ -15,6 +15,13 @@
     }
 }
 
+.volverAPrincipal {
+    display: flex;
+    align-items: center;
+    width: 130px;
+    justify-content: space-between;
+}
+
 .instrucciones {
     width: 690px;
     height: 430px;
@@ -51,20 +58,21 @@
 .cuadrosVideo {
     display: none;
     justify-content: space-evenly;
-    .boton{
+    .boton {
         display: inline-block;
         font-family: $fuenteNormal;
         border: 1px solid $colorAzul;
         padding: 8px 16px 12px;
         background-color: $colorRosa;
-        box-shadow: 2px 2px inset $colorBlanco, 0 0 0px 2px inset $colorGrisPardo;
+        box-shadow: 2px 2px inset $colorBlanco,
+            0 0 0px 2px inset $colorGrisPardo;
         height: 37px;
         font-size: 16px;
-        margin-right: 16px;  
+        margin-right: 16px;
         cursor: pointer;
         &:hover {
-            background-color: #997D97;        
-        }  
+            background-color: #997d97;
+        }
     }
     .verPorCamara {
         height: 430px;
@@ -103,32 +111,41 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            .botonComenzarGrabacion{
+            .botonComenzarGrabacion {
                 display: flex;
                 align-content: center;
-                .boton{
+                .boton {
                     margin: 0;
                 }
-                #btnStartRecord2{
+                #btnStartRecord2 {
                     width: 180px;
                 }
-
             }
-            .botonDetenerGrabacion{
+            .timer {
+                .timerNumeros {
+                    background: #ffffff;
+                    border: 1px solid #979797;
+                    box-shadow: inset -2px -2px 0 0 #e6e6e6,
+                        inset 2px 2px 0 0 #000000;
+                    padding: 5px 20px;
+                    width: 70px;
+                    p {
+                        display: inline;
+                    }
+                }
+            }
+            .botonDetenerGrabacion {
                 display: flex;
                 align-content: center;
-                
-                .boton{
+
+                .boton {
                     margin: 0;
-                    background: #FF6161;
+                    background: #ff6161;
                 }
-                #btnStopRecord2{
+                #btnStopRecord2 {
                     width: 180px;
                 }
-
             }
-            
-            
         }
     }
 }
