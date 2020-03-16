@@ -68,7 +68,7 @@
     }
     .verPorCamara {
         height: 430px;
-        width: 500px;
+        width: 480px;
         box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
         display: flex;
         flex-direction: column;
@@ -90,7 +90,7 @@
     }
     .verPorCamaraBotones {
         height: 430px;
-        width: 230px;
+        width: 320px;
         box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
         display: flex;
         flex-direction: column;
@@ -98,10 +98,35 @@
         .botonesCuadroVideo {
             position: relative;
             height: 400px;
-            width: 200px;
+            width: 250px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            align-items: center;
+            .botonComenzarGrabacion{
+                display: flex;
+                align-content: center;
+                .boton{
+                    margin: 0;
+                }
+                #btnStartRecord2{
+                    width: 180px;
+                }
+
+            }
+            .botonDetenerGrabacion{
+                display: flex;
+                align-content: center;
+                
+                .boton{
+                    margin: 0;
+                    background: #FF6161;
+                }
+                #btnStopRecord2{
+                    width: 180px;
+                }
+
+            }
             
             
         }

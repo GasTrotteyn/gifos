@@ -96,7 +96,9 @@ function stopShowVideo() {
 /////FUNCION DE GRABAR VIDEO////////////////////////
 
 let btnStartRecord = document.getElementById('btnStartRecord');
+let btnStartRecord2 = document.getElementById('btnStartRecord2');
 let btnStopRecord = document.getElementById('btnStopRecord');
+let btnStopRecord2 = document.getElementById('btnStopRecord2');
 let cuadroParaGif = document.getElementById('cuadroParaGif');
 
 let recorder
@@ -109,6 +111,7 @@ async function recordVideo() {
     });
     recorder.startRecording();
     btnStopRecord.disabled = false;
+    btnStopRecord2.disabled = false;
 }
 
 
@@ -122,6 +125,7 @@ async function stopRecordVideo() {
         //cuadroParaGif.play();
     });
     btnStopRecord.disabled = true;
+    btnStopRecord2.disabled = true;
 };
 
 ///ENVIAR EL GIF////
@@ -166,7 +170,9 @@ function cargarPagina() {
     btnStart.addEventListener('click', showVideo);
     btnStop.addEventListener('click', stopShowVideo);
     btnStartRecord.addEventListener('click', recordVideo);
+    btnStartRecord2.addEventListener('click', recordVideo);
     btnStopRecord.addEventListener('click', stopRecordVideo);
+    btnStopRecord2.addEventListener('click', stopRecordVideo);
     btnUploadGif.addEventListener('click', packGif);
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);

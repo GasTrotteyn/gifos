@@ -479,7 +479,7 @@ body {
 
 .cuadrosVideo .verPorCamara {
   height: 430px;
-  width: 500px;
+  width: 480px;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   display: -webkit-box;
@@ -517,7 +517,7 @@ body {
 
 .cuadrosVideo .verPorCamaraBotones {
   height: 430px;
-  width: 230px;
+  width: 320px;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   display: -webkit-box;
@@ -535,7 +535,7 @@ body {
 .cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo {
   position: relative;
   height: 400px;
-  width: 200px;
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -546,5 +546,41 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonComenzarGrabacion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonComenzarGrabacion .boton {
+  margin: 0;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonComenzarGrabacion #btnStartRecord2 {
+  width: 180px;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion .boton {
+  margin: 0;
+  background: #FF6161;
+}
+
+.cuadrosVideo .verPorCamaraBotones .botonesCuadroVideo .botonDetenerGrabacion #btnStopRecord2 {
+  width: 180px;
 }
 /*# sourceMappingURL=mis_guifos.css.map */
