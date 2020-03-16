@@ -157,6 +157,7 @@ async function packGif() {
     form.append('file', blob, 'myGif.gif');
     form.append('api_key', apiKey);
     sendGif(form);
+    mostrarSubiendo();
 
 }
 
@@ -175,6 +176,16 @@ function sendGif(form) {
         return datos.data.id
     });
 }
+
+/// OCULTAR PANTALLAS Y MOSTRAR CUADRO DE SUBIDA ////////
+
+let subiendo = document.getElementById('subiendo');
+
+function mostrarSubiendo() {
+    cuadrosVideo.style.display = 'none';
+    subiendo.style.display = 'inline-block';
+}
+
 
 
 //// OFRECER AL USUARIO LA URL PARA COMPARTIR SU NUEVO GIF///////

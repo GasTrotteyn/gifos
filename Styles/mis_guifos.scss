@@ -22,7 +22,7 @@
     justify-content: space-between;
 }
 
-.instrucciones {
+%instrucciones {
     width: 690px;
     height: 430px;
     background: #e6e6e6;
@@ -54,6 +54,10 @@
             }
         }
     }
+}
+
+.instrucciones{
+    @extend %instrucciones;
 }
 .cuadrosVideo {
     display: none;
@@ -147,5 +151,31 @@
                 }
             }
         }
+    }
+}
+
+.subiendo {
+    display: none;
+    @extend %instrucciones;
+
+    .subiendoInfo {
+        background: #ffffff;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+        width: 90%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 35px;
+        top: 15px;
+    }
+    .cancelar{
+        top: 35px;
+        position: relative;
+        left: 12px;
+        
     }
 }
