@@ -124,16 +124,16 @@ async function startTimer() {
         if (bandera) {
             time++;
             segundos.innerHTML = time;
-        }else{
-            time=0;
+        } else {
+            time = 0;
         };
     }, 1000);
-    
+
 
 }
 
 async function stopRecordVideo() {
-    stopShowVideo();
+    //stopShowVideo();
     recorder.stopRecording(async function () {
         let blob = recorder.getBlob();
         let url = URL.createObjectURL(blob);
@@ -152,12 +152,12 @@ const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 let btnUploadGif = document.getElementById('btnUploadGif');
 
 async function packGif() {
+    mostrarSubiendo();
     let form = new FormData();
     let blob = await recorder.getBlob();
     form.append('file', blob, 'myGif.gif');
     form.append('api_key', apiKey);
     sendGif(form);
-    mostrarSubiendo();
 
 }
 
@@ -172,12 +172,15 @@ function sendGif(form) {
             throw "Error en la llamada";
         };
     }).then((datos) => {
-        console.log(datos.data.id);
-        return datos.data.id
+        id = datos.data.id;
+        console.log(id);
+        mostrarExito();
+        crearEnlace(id);
+        return id;
     });
 }
 
-/// OCULTAR PANTALLAS Y MOSTRAR CUADRO DE SUBIDA ////////
+/// OCULTAR PANTALLAS DE VIDEO Y MOSTRAR CUADRO DE SUBIDA ////
 
 let subiendo = document.getElementById('subiendo');
 
@@ -186,10 +189,33 @@ function mostrarSubiendo() {
     subiendo.style.display = 'inline-block';
 }
 
+//// OCULTAR CUDRO DE SUBIDA Y MOSTRAR CUADRO DE EXITO CON OPCIONES A COPIAR ENLACE Y DESCARGAR GIFO///////
 
+let exito = document.getElementById('exito');
+let cuadroParaGifExito = document.getElementById('cuadroParaGifExito');
+let enlace = document.getElementById('enlace');
+let btnDescargarGuifo = document.getElementById('btnDescargarGuifo');
 
-//// OFRECER AL USUARIO LA URL PARA COMPARTIR SU NUEVO GIF///////
+function crearEnlace (id){
+ let url = `www.giphy.com/gifs/${id}`;
+ enlace.innerHTML = url;
+ 
 
+}
+
+// async function enviarHistorialAlStorage() {
+//     historialEnviado = {'lista': historial};
+//     historialEnviadoJson = JSON.stringify(historialEnviado);    
+//     localStorage.setItem('historialStorage', historialEnviadoJson);    
+// }  
+
+function mostrarExito() {
+    exito.style.display = 'inline-block';
+    subiendo.style.display = 'none';
+    let blob = recorder.getBlob();
+    let url = URL.createObjectURL(blob);
+    cuadroParaGifExito.src = url;
+}
 
 
 ///FUNCION PRINCIPAL//////
