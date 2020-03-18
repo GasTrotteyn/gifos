@@ -153,15 +153,15 @@ function buscarConEnter(event) {
 /// FRASES SUGERIDAS PARA EL INPUT/////
 
 const frases = [
-    'te sugiero que busques gatos',
-    'yo buscaría perros, son muy tiernos!',
-    'fijate que los loros son muy divertodos',
-    'los autos son buena opción',
+    'Te sugiero que busques gatos',
+    'Yo buscaría perros, son muy tiernos!',
+    'Fijate que los loros son muy divertidos',
+    'Los autos son buena opción',
     'Algo de Star Wars?',
     'Los chiques aman los conejos',
-    'Viste los de Michael jackson?',
+    'Viste los de Michael Jackson?',
     'Gente desarrollando webs, debe ser cool!!!',
-    'algo de amor?',
+    'Algo de amor?',
     'Messi, ese no falla',
     'Un buen amanecer'];
 
