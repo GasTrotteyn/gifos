@@ -104,6 +104,7 @@ let cuadroParaGif = document.getElementById('cuadroParaGif');
 let recorder
 let bandera = false;
 let segundos = document.getElementById('segundos');
+let centiSegundos = document.getElementById('centiSegundos');
 
 async function recordVideo() {
     showVideo();
@@ -120,14 +121,23 @@ async function recordVideo() {
 
 async function startTimer() {
     let time = 0;
+    let segs = 0;
+    segundos.innerHTML = segs;
+    centiSegundos.innerHTML = time;
     setInterval(() => {
         if (bandera) {
+            if (time == 99) {
+                segs++;
+                segundos.innerHTML = segs;
+                time = 0;
+            }
             time++;
-            segundos.innerHTML = time;
+            centiSegundos.innerHTML = time;
         } else {
             time = 0;
+            segs = 0;
         };
-    }, 1000);
+    }, 10);
 
 
 }
@@ -161,7 +171,7 @@ async function packGif() {
 
 }
 
-function sendGif(form) {
+async function sendGif(form) {
     fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, {
         method: 'POST',
         body: form,
@@ -173,10 +183,12 @@ function sendGif(form) {
         };
     }).then((datos) => {
         id = datos.data.id;
-        console.log(id);
         mostrarExito();
-        crearEnlace(id);
+        crearEnlace(id);        
         return id;
+    }).then((id) => {
+        meterNuevo(id);
+        console.log(id);
     });
 }
 
@@ -189,33 +201,77 @@ function mostrarSubiendo() {
     subiendo.style.display = 'inline-block';
 }
 
-//// OCULTAR CUDRO DE SUBIDA Y MOSTRAR CUADRO DE EXITO CON OPCIONES A COPIAR ENLACE Y DESCARGAR GIFO///////
+//// OCULTAR CUADRO DE SUBIDA Y MOSTRAR CUADRO DE EXITO CON OPCIONES A COPIAR ENLACE Y DESCARGAR GIFO///////
 
 let exito = document.getElementById('exito');
 let cuadroParaGifExito = document.getElementById('cuadroParaGifExito');
 let enlace = document.getElementById('enlace');
 let btnDescargarGuifo = document.getElementById('btnDescargarGuifo');
 
-function crearEnlace (id){
- let url = `www.giphy.com/gifs/${id}`;
- enlace.innerHTML = url;
- 
-
+function crearEnlace(id) {
+    let url = `https://media1.giphy.com/media/${id}/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif`;
+    enlace.innerHTML = url;
 }
 
-// async function enviarHistorialAlStorage() {
-//     historialEnviado = {'lista': historial};
-//     historialEnviadoJson = JSON.stringify(historialEnviado);    
-//     localStorage.setItem('historialStorage', historialEnviadoJson);    
-// }  
-
-function mostrarExito() {
+async function mostrarExito() {
     exito.style.display = 'inline-block';
     subiendo.style.display = 'none';
     let blob = recorder.getBlob();
-    let url = URL.createObjectURL(blob);
+    let url = URL.createObjectURL(blob);    
     cuadroParaGifExito.src = url;
 }
+
+////CARGAR EL LOCALSTORAGE GUARDAR EN UN ARRAY Y RECARGAR CON CADA SUBIDA DE GIF ////////////////
+
+async function traerDelStorage() {
+    let subidos = [];
+    let refrescadojson = localStorage.getItem('gifGuardados');
+    if (refrescadojson !== null) {
+        let refrescado = await JSON.parse(refrescadojson);
+        let lista = refrescado.lista
+        lista.forEach(element => {
+            subidos.push(element);
+        });
+        console.log (subidos);
+        return subidos;
+    }
+}
+
+
+let cuadros = document.getElementById('cuadros');
+
+async function crearCuadrosSubidos() {
+    let subidos = await traerDelStorage();
+    cuadros.innerHTML = '';
+    subidos.forEach(element => {
+        let img = document.createElement('img');
+        img.src = `https://media1.giphy.com/media/${element}/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif`;
+        cuadros.appendChild(img);
+    })
+}
+
+async function meterNuevo(idNuevo){
+    let subidos = await traerDelStorage();
+    subidos.push(idNuevo);
+    console.log(subidos);
+    let listaConNuevo = {'lista' : subidos};
+    let listaConNuevoJson = await JSON.stringify(listaConNuevo);
+    localStorage.setItem('gifGuardados', listaConNuevoJson); 
+    await crearCuadrosSubidos();
+}
+
+//let prueba = ['UukjKxeRlpXLkZ8jY6']
+//localStorage.setItem('gifGuardados',JSON.stringify({'lista' : prueba}));
+/*
+https://media3.giphy.com/media/UukjKxeRlpXLkZ8jY6/giphy-downsized-medium.gif?cid=52afa79a22d81ba421c4503309da4820ab3be05a044c9529&rid=giphy-downsized-medium.gif
+
+https://media1.giphy.com/media/5wFUxSV2R7wi7NJX8x/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif
+
+UukjKxeRlpXLkZ8jY6
+
+*/
+
+
 
 
 ///FUNCION PRINCIPAL//////
@@ -232,6 +288,7 @@ function cargarPagina() {
     desplegable.addEventListener('click', desplegarMenu);
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
+    crearCuadrosSubidos();
 
 }
 

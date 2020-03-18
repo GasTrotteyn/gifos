@@ -77,12 +77,13 @@
                     <button class="boton" id="btnStartRecord2">Empezar a grabar</button>
                 </div>
                 <div class="timer">
-                    <div class="timerNumeros">00:00:<p id="segundos">00</p>
+                    <div class="timerNumeros"> 
+                        <p>00 :</p>
+                        <p id="segundos">00</p>
+                        <p>:</p>
+                        <p id="centiSegundos">00</p>
                     </div>
-                    <div class="barra">
-
-                    </div>
-
+                    
                 </div>
                 <div class="botonDetenerGrabacion">
                     <button class="boton" id="btnStopRecord"><img src="./assets/recording.svg"
@@ -127,17 +128,16 @@
                 src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&amp;rid=giphy.gif"></img>
             <div class="exitoContenidoBotones">
                 <h4>Guifo creado con éxito</h4>
-                <button class="boton" id="btnCopiarEnlace">Copiar Enlace Guifo</button>
-                <div class="enlace" id="enlace">www.giphy.com/gifs</div>
-                <button class="boton" id="btnDescargarGuifo">Descargar Guifo</button>
+                <button class="boton" disabled=true id="btnCopiarEnlace">Descargar Guifo</button>
+                <button class="boton" disabled=true id="btnDescargarGuifo">Copiar Enlace Guifo</button>
             </div>
         </div>
+        <div class="enlace" id="enlace">https://media1.giphy.com/media/VDXi3hl4NvBpi48xBW/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif</div>
         <button class="boton exitoBotonListo"><a class="anchorCancelar" href="./mis_gifos.html">Listo</a></button>
     </div>
     <div class="sugerencias">
         <div class="input">Mis Guifos</div>
         <div id="cuadros" class="cuadros">
-
         </div>
     </div>
 
