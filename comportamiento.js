@@ -100,9 +100,7 @@ async function CrearEventoBotonesDeHistorial () {
 
 const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 
-
-async function getSearchResults(search) {
-    
+async function getSearchResults(search) {    
     let url = 'http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + apiKey +'&limit=12';
     let found = await fetch(url);
     let json = await found.json();
@@ -167,7 +165,7 @@ const frases = [
     'Messi, ese no falla',
     'Un buen amanecer'];
 
-function ponerFrases(event) {
+function ponerFrases() {
     ActivarBotonBuscar();
     let desplegableSugerencias = document.getElementById('desplegableSugerencias');
     let divTemporal = document.createElement('div');
@@ -258,4 +256,3 @@ function cargarPagina() {
         btnBuscar.addEventListener("click", buscar);
     });
 }
-

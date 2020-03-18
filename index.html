@@ -1,78 +1,79 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/773477662d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./Styles/styles.css">
-        <title>Proyecto GifOS</title>
-    </head>
-    <body>
-        <div class="gradient">
-            <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <b
-                    id="visitas">12.765.803</b></p>
-        </div>
-    
-        <div class="header">
-            <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia">
-            <div class="botones">
-                <div class="boton" id="crear"> <a class="anchor" href="./mis_gifos.html">Crear Guifos</a></div>
-                <div class="boton" id="tema">Elegir Tema</div>
-                <div class="boton desplegable" id="desplegable"><i class="fas fa-caret-down"></i></div>
-                <div class="menu" id="menu">
-                    <div class="boton" id="btnDay">
-                        <p><span>S</span>ailor Day</p>
-                    </div>
-                    <div class="boton" id="btnNight">
-                        <p><span>S</span>ailor Night</p>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/773477662d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Styles/styles.css">
+    <title>Proyecto GifOS</title>
+</head>
+
+<body>
+    <div class="gradient">
+        <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <b
+                id="visitas">12.765.803</b></p>
+    </div>
+
+    <div class="header">
+        <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia">
+        <div class="botones">
+            <div class="boton" id="crear"> <a class="anchor" href="./mis_gifos.html">Crear Guifos</a></div>
+            <div class="boton" id="tema">Elegir Tema</div>
+            <div class="boton desplegable" id="desplegable"><i class="fas fa-caret-down"></i></div>
+            <div class="menu" id="menu">
+                <div class="boton" id="btnDay">
+                    <p><span>S</span>ailor Day</p>
                 </div>
-                <label><a href="mis_gifos.html"><span id="m">M</span>is Guifos</a></label>
+                <div class="boton" id="btnNight">
+                    <p><span>S</span>ailor Night</p>
+                </div>
             </div>
-    
-        </div>
-        <div id="buscador" class="buscador">
-            <div class="gradient">
-                <p>Buscar</p>
-            </div>
-            <div class="gris" id="gris">
-                <input type="text" class="input" id="input"
-                    placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <div class="boton buscar" id="botonBuscar"><i class="fas fa-search"></i> Buscar</div>
-            </div>
-            <div class='gris2' id="desplegableSugerencias"></div>
-            <div id="historial" class="historial"></div>
-        </div> 
-
-        <div  class="resultado">
-            <div id="resultadosBusqueda" class="cuadros"></div>
+            <label><a href="mis_gifos.html"><span id="m">M</span>is Guifos</a></label>
         </div>
 
-        <div class="sugerencias">
-            <div class="input">Hoy te sugerimos:</div>
-            <div id="cuadros" class="cuadros" >
-    
-            </div>
+    </div>
+    <div id="buscador" class="buscador">
+        <div class="gradient">
+            <p>Buscar</p>
         </div>
+        <div class="gris" id="gris">
+            <input type="text" class="input" id="input"
+                placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+            <div class="boton buscar" id="botonBuscar"><i class="fas fa-search"></i> Buscar</div>
+        </div>
+        <div class='gris2' id="desplegableSugerencias"></div>
+        <div id="historial" class="historial"></div>
+    </div>
 
-        <div class="tendencias">
-            <div class="input">Tendencias:</div>
-            <div id="cuadrosTendencias" class="cuadros" >
-    
-            </div>
+    <div class="resultado">
+        <div id="resultadosBusqueda" class="cuadros"></div>
+    </div>
+
+    <div class="sugerencias">
+        <div class="input">Hoy te sugerimos:</div>
+        <div id="cuadros" class="cuadros">
+
         </div>
-        <p>
-            <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                    alt="¡CSS Válido!" />
-                </a>
-            </p>
-    
-    
-        <script src="./comportamiento.js"></script>
-    </body>
-    
-    </html>
+    </div>
+
+    <div class="tendencias">
+        <div class="input">Tendencias:</div>
+        <div id="cuadrosTendencias" class="cuadros">
+
+        </div>
+    </div>
+    <p class="validator">
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                alt="¡CSS Válido!" />
+        </a>
+    </p>
+
+
+    <script src="./comportamiento.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 window.addEventListener('load', cargarPagina);
 
-///DESPLEGADO DE MENU DE TEMAS/////
+/// DESPLEGADO DE MENU DE TEMAS /////
 
 let menu = document.getElementById('menu');
 let desplegable = document.getElementById('desplegable');
@@ -13,7 +13,7 @@ function desplegarMenu(event) {
     event.stopPropagation()
 }
 
-///CAMBIO DE TEMA
+/// CAMBIO DE TEMA ///////
 
 let btnNight = document.getElementById('btnNight');
 let btnDay = document.getElementById('btnDay');
@@ -44,7 +44,8 @@ function cambiarlogo() {
         return './assets/gifOF_logo.png'
     }
 }
-///////// OCULTAR INSTRUCCIONES Y MOSTRAR LAS PANTALLAS///////////////////////
+
+///////// OCULTAR INSTRUCCIONES Y MOSTRAR LAS PANTALLAS DE VIDEO ///////////////////////
 
 let cuadrosVideo = document.getElementById('cuadrosVideo');
 let btnComenzar = document.getElementById('btnComenzar');
@@ -54,9 +55,7 @@ function mostrarPantallas() {
     instrucciones.style.display = 'none';
 }
 
-
-
-/////CAPTURAR IMAGEN DE LA CÁMARA Y MOSTRAR POR PANTALLA///////////////
+///// CAPTURAR IMAGEN DE LA CÁMARA Y MOSTRAR POR PANTALLA ///////////////
 
 const constraints = {
     audio: false,
@@ -72,7 +71,6 @@ let btnStop = document.getElementById('btnStop');
 async function getVideoFromCamera() {
     try {
         let stream = await navigator.mediaDevices.getUserMedia(constraints);
-        //console.log(stream);
         return stream;
     } catch (err) {
         console.log('No se pudo tomar el video de la cámara:' + err);
@@ -81,19 +79,17 @@ async function getVideoFromCamera() {
 
 async function showVideo() {
     let stream = await getVideoFromCamera();
-    //console.log (stream);
     cuadroVideo.srcObject = stream;
     cuadroVideo.play();
     btnStop.disabled = false;
 }
 
 function stopShowVideo() {
-
     cuadroVideo.pause();
     btnStop.disabled = true;
 }
 
-/////FUNCION DE GRABAR VIDEO////////////////////////
+///// GRABAR VIDEO ////////////////////////
 
 let btnStartRecord = document.getElementById('btnStartRecord');
 let btnStartRecord2 = document.getElementById('btnStartRecord2');
@@ -138,25 +134,20 @@ async function startTimer() {
             segs = 0;
         };
     }, 10);
-
-
 }
 
 async function stopRecordVideo() {
-    //stopShowVideo();
     recorder.stopRecording(async function () {
         let blob = recorder.getBlob();
         let url = URL.createObjectURL(blob);
-        //console.log(url);
         cuadroParaGif.src = url;
-        //cuadroParaGif.play();
     });
     btnStopRecord.disabled = true;
     btnStopRecord2.disabled = true;
     bandera = false;
 };
 
-///ENVIAR EL GIF////
+///////// ENVIAR EL GIF /////////////////
 
 const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 let btnUploadGif = document.getElementById('btnUploadGif');
@@ -168,7 +159,6 @@ async function packGif() {
     form.append('file', blob, 'myGif.gif');
     form.append('api_key', apiKey);
     sendGif(form);
-
 }
 
 async function sendGif(form) {
@@ -184,11 +174,10 @@ async function sendGif(form) {
     }).then((datos) => {
         id = datos.data.id;
         mostrarExito();
-        crearEnlace(id);        
+        crearEnlace(id);
         return id;
     }).then((id) => {
         meterNuevo(id);
-        console.log(id);
     });
 }
 
@@ -201,7 +190,7 @@ function mostrarSubiendo() {
     subiendo.style.display = 'inline-block';
 }
 
-//// OCULTAR CUADRO DE SUBIDA Y MOSTRAR CUADRO DE EXITO CON OPCIONES A COPIAR ENLACE Y DESCARGAR GIFO///////
+//// OCULTAR CUADRO DE SUBIDA Y MOSTRAR CUADRO DE EXITO CON OPCIONES A COPIAR ENLACE Y DESCARGAR GIFO ///////
 
 let exito = document.getElementById('exito');
 let cuadroParaGifExito = document.getElementById('cuadroParaGifExito');
@@ -217,11 +206,11 @@ async function mostrarExito() {
     exito.style.display = 'inline-block';
     subiendo.style.display = 'none';
     let blob = recorder.getBlob();
-    let url = URL.createObjectURL(blob);    
+    let url = URL.createObjectURL(blob);
     cuadroParaGifExito.src = url;
 }
 
-////CARGAR EL LOCALSTORAGE GUARDAR EN UN ARRAY Y RECARGAR CON CADA SUBIDA DE GIF ////////////////
+//// CARGAR EL LOCALSTORAGE, GUARDAR EN UN ARRAY Y RECARGAR CON CADA SUBIDA DE GIF ////////////////
 
 async function traerDelStorage() {
     let subidos = [];
@@ -232,49 +221,34 @@ async function traerDelStorage() {
         lista.forEach(element => {
             subidos.push(element);
         });
-        console.log (subidos);
-        return subidos;
     }
+    return subidos;
 }
-
 
 let cuadros = document.getElementById('cuadros');
 
 async function crearCuadrosSubidos() {
     let subidos = await traerDelStorage();
     cuadros.innerHTML = '';
-    subidos.forEach(element => {
-        let img = document.createElement('img');
-        img.src = `https://media1.giphy.com/media/${element}/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif`;
-        cuadros.appendChild(img);
-    })
+    if (subidos) {
+        subidos.forEach(element => {
+            let img = document.createElement('img');
+            img.src = `https://media1.giphy.com/media/${element}/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif`;
+            cuadros.appendChild(img);
+        })
+    }
 }
 
-async function meterNuevo(idNuevo){
+async function meterNuevo(idNuevo) {
     let subidos = await traerDelStorage();
     subidos.push(idNuevo);
-    console.log(subidos);
-    let listaConNuevo = {'lista' : subidos};
+    let listaConNuevo = { 'lista': subidos };
     let listaConNuevoJson = await JSON.stringify(listaConNuevo);
-    localStorage.setItem('gifGuardados', listaConNuevoJson); 
+    localStorage.setItem('gifGuardados', listaConNuevoJson);
     await crearCuadrosSubidos();
 }
 
-//let prueba = ['UukjKxeRlpXLkZ8jY6']
-//localStorage.setItem('gifGuardados',JSON.stringify({'lista' : prueba}));
-/*
-https://media3.giphy.com/media/UukjKxeRlpXLkZ8jY6/giphy-downsized-medium.gif?cid=52afa79a22d81ba421c4503309da4820ab3be05a044c9529&rid=giphy-downsized-medium.gif
-
-https://media1.giphy.com/media/5wFUxSV2R7wi7NJX8x/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif
-
-UukjKxeRlpXLkZ8jY6
-
-*/
-
-
-
-
-///FUNCION PRINCIPAL//////
+/// FUNCION PRINCIPAL //////
 
 function cargarPagina() {
     btnComenzar.addEventListener('click', mostrarPantallas);
@@ -289,6 +263,4 @@ function cargarPagina() {
     btnNight.addEventListener('click', cambiarTema);
     btnDay.addEventListener('click', cambiarTema);
     crearCuadrosSubidos();
-
 }
-
