@@ -48,6 +48,7 @@
         }
         .cancelar {
             background: #fff4fd;
+            height: 17px;
             .anchorCancelar {
                 text-decoration: none;
                 color: #110038;
@@ -60,7 +61,7 @@
     @extend %instrucciones;
 }
 .cuadrosVideo {
-    display: none;
+    display: none;//flex para que aparezca
     justify-content: space-evenly;
     margin-top: 100px;
     .boton {
@@ -156,7 +157,7 @@
 }
 
 .subiendo {
-    display: none;
+    display: none;//inline-block para que aparezca
     @extend %instrucciones;
 
     .subiendoInfo {
@@ -180,7 +181,7 @@
     }
 }
 .exito {
-    display: none;
+    display: none;///inline-block para que aparezca
     @extend %instrucciones;
 
     background: #e6e6e6;
@@ -227,7 +228,7 @@
         padding-bottom: 8px;
         a {
             text-decoration: none;
-            color: #110038 100%;
+            color: #110038;
         }
     }
 }

@@ -458,6 +458,7 @@ body {
 
 .instrucciones .botonesComienzo .cancelar, .subiendo .botonesComienzo .cancelar, .exito .botonesComienzo .cancelar {
   background: #fff4fd;
+  height: 17px;
 }
 
 .instrucciones .botonesComienzo .cancelar .anchorCancelar, .subiendo .botonesComienzo .cancelar .anchorCancelar, .exito .botonesComienzo .cancelar .anchorCancelar {
@@ -716,6 +717,6 @@ body {
 
 .exito .exitoBotonListo a {
   text-decoration: none;
-  color: #110038 100%;
+  color: #110038;
 }
 /*# sourceMappingURL=mis_guifos.css.map */

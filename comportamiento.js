@@ -103,7 +103,7 @@ const apiKey = 'sJHS3cT47pRbYOwqHplkAGU00zTJIct4';
 
 async function getSearchResults(search) {
     
-    let url = 'http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + apiKey +'&limit=6';
+    let url = 'http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + apiKey +'&limit=12';
     let found = await fetch(url);
     let json = await found.json();
     let contenedorImagen = document.getElementById('resultadosBusqueda');

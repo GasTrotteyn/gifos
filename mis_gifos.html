@@ -7,7 +7,7 @@
     <title>Captura de video por camara</title>
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/773477662d.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
     <link rel="stylesheet" href="./Styles/mis_guifos.css">
 </head>
 
@@ -33,7 +33,7 @@
                     <p><span>S</span>ailor Night</p>
                 </div>
             </div>
-            <label for="misGuifos"><a href="mis_gifos.html"><span id="m">M</span>is Guifos</a></label>
+            <label><a href="mis_gifos.html"><span id="m">M</span>is Guifos</a></label>
         </div>
 
     </div>
@@ -41,7 +41,7 @@
         <div class="gradient">
             <p>Crear Guifos</p>
         </div>
-        <img src="assets/window img.png" alt="icono de ventana de windows" class="ventanita">
+        <img src="assets/window_img.png" alt="icono de ventana de windows" class="ventanita">
         <div class="texto">
             <h4>Aquí podrás crear tus propios guifos</h4>
             <p>Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los
@@ -53,7 +53,7 @@
             <p> ¿Quieres comenzar a crear tu guifo ahora?</p>
         </div>
         <div class="botonesComienzo">
-            <button class="boton cancelar"><a class="anchorCancelar" href="./index.html">Cancelar</a></button>
+            <div class="boton cancelar"><a class="anchorCancelar" href="./index.html">Cancelar</a></div>
             <button class="boton" id="btnComenzar">Comenzar</button>
         </div>
 
@@ -77,13 +77,13 @@
                     <button class="boton" id="btnStartRecord2">Empezar a grabar</button>
                 </div>
                 <div class="timer">
-                    <div class="timerNumeros"> 
+                    <div class="timerNumeros">
                         <p>00 :</p>
                         <p id="segundos">00</p>
                         <p>:</p>
                         <p id="centiSegundos">00</p>
                     </div>
-                    
+
                 </div>
                 <div class="botonDetenerGrabacion">
                     <button class="boton" id="btnStopRecord"><img src="./assets/recording.svg"
@@ -92,15 +92,14 @@
                 </div>
             </div>
         </div>
-
+        
 
         <div class="verPorCamara">
             <div class="gradient">
                 <p>Así quedó tu Guifo</p>
             </div>
-            <img class="cuadroCamara" id="cuadroParaGif"
-                src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&amp;rid=giphy.gif">
-            </img>
+            <img class="cuadroCamara" id="cuadroParaGif" alt="gif de niño esperando"
+                src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&rid=giphy.gif">
             <div class="botonesCuadroVideo">
                 <button class="boton" id="btnUploadGif">Subir Guifo</button>
             </div>
@@ -115,7 +114,7 @@
             <h4>Estamos subiendo tu guifo...</h4>
         </div>
         <div class="botonesComienzo">
-            <button class="boton cancelar"><a class="anchorCancelar" href="./mis_gifos.html">Cancelar</a></button>
+            <div class="boton cancelar"><a class="anchorCancelar" href="./mis_gifos.html">Cancelar</a></div>
         </div>
 
     </div>
@@ -124,22 +123,31 @@
             <p>Guifo subido con éxito</p>
         </div>
         <div class="exitoContenido">
-            <img class="cuadroCamara" id="cuadroParaGifExito"
-                src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&amp;rid=giphy.gif"></img>
+            <img class="cuadroCamara" id="cuadroParaGifExito" alt="gif de niño esperando"
+                src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&amp;rid=giphy.gif">
             <div class="exitoContenidoBotones">
                 <h4>Guifo creado con éxito</h4>
-                <button class="boton" disabled=true id="btnCopiarEnlace">Descargar Guifo</button>
-                <button class="boton" disabled=true id="btnDescargarGuifo">Copiar Enlace Guifo</button>
+                <button class="boton" disabled id="btnCopiarEnlace">Descargar Guifo</button>
+                <button class="boton" disabled id="btnDescargarGuifo">Copiar Enlace Guifo</button>
             </div>
         </div>
-        <div class="enlace" id="enlace">https://media1.giphy.com/media/VDXi3hl4NvBpi48xBW/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif</div>
-        <button class="boton exitoBotonListo"><a class="anchorCancelar" href="./mis_gifos.html">Listo</a></button>
+        <div class="enlace" id="enlace">
+            https://media1.giphy.com/media/VDXi3hl4NvBpi48xBW/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif
+        </div>
+        <div class="boton exitoBotonListo"><a class="anchorCancelar" href="./mis_gifos.html">Listo</a></div>
     </div>
     <div class="sugerencias">
         <div class="input">Mis Guifos</div>
         <div id="cuadros" class="cuadros">
         </div>
     </div>
+    <p>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                alt="¡CSS Válido!" />
+            </a>
+        </p>
 
     <script src="./mis_gifos.js"></script>
 </body>
