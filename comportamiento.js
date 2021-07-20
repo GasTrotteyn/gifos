@@ -98,7 +98,7 @@ async function CrearEventoBotonesDeHistorial() {
     }
 }
 
-///HACER EL SEARCH/////////modificación
+///HACER EL SEARCH////////
 
 const apiKey = "sJHS3cT47pRbYOwqHplkAGU00zTJIct4";
 
